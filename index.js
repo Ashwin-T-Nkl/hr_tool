@@ -10,6 +10,7 @@ import licenseRoutes from "./routes/licenseRoutes.js";
 import orgLicenseRoutes from "./routes/orgLicenseRoutes.js";
 import CandidateRoutes from "./routes/CandidateRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
+import jobRoutes from "./routes/DashboardRoute.js";
 import jobSearch from "./routes/jobSearchRoutes.js";
 dotenv.config();
 
@@ -57,6 +58,8 @@ app.use("/api/candidate", CandidateRoutes);
 app.use("/api/org_license", CandidateRoutes);
 app.use("/api/job", jobRoutes);
 app.use("/api/jobSearch", jobSearchRoutes);
+app.use("/api/dashboard", DashboardRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("API is running...");
