@@ -35,15 +35,30 @@ export const getTotalDeclinedCandidatesCountService = async () => {
 };
 
 
-// Delete Candidate by ID
-export const deleteCandidateService = async (id) => {
-  const { data, error } = await supabase
-    .from("candidate")
-    .delete()
-    .eq("id", id);
+//  Interview Scheduled 
+
+export const getInterviewScheduledCandidatesCountService = async () => {
+  const { count, error } = await supabase
+    .from("job_application")
+    .select("id", { count: "exact", head: true })
+    .eq("status", "interview_scheduled"); // Filter only interview scheduled candidates
 
   if (error) throw new Error(error.message);
-  return data;
+  return count;
 };
+
+//  Interview Completed 
+
+export const getInterviewCompletedCandidatesCountService = async () => {
+  const { count, error } = await supabase
+    .from("job_application")
+    .select("id", { count: "exact", head: true })
+    .eq("status", "interview_completed"); // Filter for completed interviews
+
+  if (error) throw new Error(error.message);
+  return count;
+};
+
+
 
 

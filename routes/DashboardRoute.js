@@ -3,8 +3,8 @@ import {
   getTotalApplicationsCountService,
   getTotalSelectedCandidatesCountService ,
   getTotalDeclinedCandidatesCountService,
-//   updateCandidate,
-//   deleteCandidate
+  getInterviewScheduledCandidatesCountService,
+  getInterviewCompletedCandidatesCountService
 } from "../controllers/DashboardController.js";
 
 const router = express.Router();
@@ -12,6 +12,7 @@ const router = express.Router();
 router.post("/fetch_by_TotalApplication", getTotalApplicationsCountService);
 router.post("/fetch_by_TotalSelectedCandidates", getTotalSelectedCandidatesCountService);
 router.post("/fetch_by_TotalDeclinedCandidates", getTotalDeclinedCandidatesCountService);
-// router.post("/update", updateCandidate);
-// router.post("/delete", deleteCandidate);
+router.post("/fetch_by_InterviewScheduledCandidates", getInterviewScheduledCandidatesCountService);
+router.post("/fetch_by_InterviewCompleted", getInterviewCompletedCandidatesCountService);
+
 export default router;
